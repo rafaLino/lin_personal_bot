@@ -1,7 +1,7 @@
 {
   "main": "build/main.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && npm run prisma:generate",
     "start": "npm run build && node --env-file=.env build/main.js",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev --name",
