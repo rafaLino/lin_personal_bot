@@ -1,5 +1,5 @@
 import { jest } from "@jest/globals";
-jest.mock("../src/repositories/regiterRepository", () => ({
+jest.mock("../api/repositories/regiterRepository", () => ({
   RegisterRepository: {
     List: jest.fn(),
     Save: jest.fn(),

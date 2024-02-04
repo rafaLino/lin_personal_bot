@@ -7,7 +7,7 @@ import { UserFilter } from "./middlewares/userFilter";
 import { PATTERN } from "./utils/regex.utils";
 import { ErrorHandler } from "./utils/errorHandler";
 import { sumCommand } from "./commands/sumCommand";
-import express from "express";
+
 const bot = new Bot(EnvironmentVariables.TOKEN);
 bot.use(UserFilter);
 
@@ -35,6 +35,4 @@ bot.command("sum", async (context) => {
 
 bot.catch(ErrorHandler);
 
-const app = express();
-
-app.use(webhookCallback(bot));
+export default webhookCallback(bot);

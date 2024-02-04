@@ -5,10 +5,10 @@ const config: Config = {
   testEnvironment: "node",
   clearMocks: true,
   coverageProvider: "v8",
-  rootDir: "src",
+  rootDir: "api",
   setupFiles: ["<rootDir>/../config/jest.setup.ts"],
   moduleNameMapper: {
-    "^src/(.*)$": "<rootDir>/src/$1",
+    "^api/(.*)$": "<rootDir>/api/$1",
   },
   transform: {
     "^.+\\.ts?$": "ts-jest",
