@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es2016",
     "module": "CommonJS",
-    "rootDir": "./",
+    "rootDir": "./src",
     "outDir": "./build",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -10,7 +10,7 @@
     "skipLibCheck": true,
     
   },
-  "include": ["src", "api/main.ts"],
+  "include": ["src"],
   "exclude": [
     "node_modules",
     "src/**/*.test.ts",
