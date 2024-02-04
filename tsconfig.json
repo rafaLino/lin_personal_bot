@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es2016",
     "module": "CommonJS",
-    "rootDir": "./api",
+    "rootDir": "src",
     "outDir": "./build",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -10,10 +10,10 @@
     "skipLibCheck": true,
     
   },
-  "include": ["api"],
+  "include": ["src", "api/main.ts"],
   "exclude": [
     "node_modules",
-    "api/**/*.test.ts",
+    "src/**/*.test.ts",
     "config"
   ]
 }
