@@ -1,7 +1,4 @@
-
-
 export interface Register {
-    name: string
-    amount: number;
-    date: string;
+  name: string;
+  amount: number;
 }

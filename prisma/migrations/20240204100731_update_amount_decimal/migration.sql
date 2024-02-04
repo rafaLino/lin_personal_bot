@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Register" ALTER COLUMN "amount" SET DATA TYPE DECIMAL;
