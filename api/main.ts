@@ -35,4 +35,4 @@ bot.command("sum", async (context) => {
 
 bot.catch(ErrorHandler);
 
-export default webhookCallback(bot);
+export default webhookCallback(bot, "http");
