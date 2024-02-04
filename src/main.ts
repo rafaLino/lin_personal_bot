@@ -1,4 +1,4 @@
-import { Bot } from "grammy";
+import { Bot, webhookCallback } from "grammy";
 import { addCommand } from "./commands/addCommand";
 import { deleteCommand } from "./commands/deleteCommand";
 import { listCommand } from "./commands/listCommand";
@@ -7,7 +7,7 @@ import { UserFilter } from "./middlewares/userFilter";
 import { PATTERN } from "./utils/regex.utils";
 import { ErrorHandler } from "./utils/errorHandler";
 import { sumCommand } from "./commands/sumCommand";
-
+import express from "express";
 const bot = new Bot(EnvironmentVariables.TOKEN);
 bot.use(UserFilter);
 
@@ -35,4 +35,6 @@ bot.command("sum", async (context) => {
 
 bot.catch(ErrorHandler);
 
-bot.start();
+const app = express();
+
+app.use(webhookCallback(bot));
