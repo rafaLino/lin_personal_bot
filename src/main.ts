@@ -1,28 +1,32 @@
 import { Bot } from "grammy";
+import { addCommand } from "./commands/addCommand";
+import { deleteCommand } from "./commands/deleteCommand";
+import { listCommand } from "./commands/listCommand";
 import { EnvironmentVariables } from "./environmentVariables";
 import { UserFilter } from "./middlewares/userFilter";
-import { addCommand } from "./commands/addCommand";
-import { listCommand } from "./commands/listCommand";
-import { deleteCommand } from "./commands/deleteCommand";
+import { PATTERN } from "./utils/regex.utils";
+import { ErrorHandler } from "./utils/errorHandler";
 
 const bot = new Bot(EnvironmentVariables.TOKEN);
 bot.use(UserFilter);
 
-bot.command("add", async (context) => {
+bot.on(":text").hears(PATTERN, async (context) => {
   if (!context.match) return;
-  await addCommand(context.match);
-  return context.reply("Added!");
+  const notification = await addCommand(context.match[0]);
+  return notification.Notify(context);
 });
 
 bot.command("list", async (context) => {
-  const result = await listCommand();
-  return context.reply(result);
+  const notification = await listCommand();
+  return notification.Notify(context);
 });
 
 bot.command("delete", async (context) => {
   if (!context.match) return;
-  await deleteCommand(context.match);
-
-  return context.reply(`${context.match} removed!`);
+  const notification = await deleteCommand(context.match);
+  return notification.Notify(context);
 });
+
+bot.catch(ErrorHandler);
+
 bot.start();
