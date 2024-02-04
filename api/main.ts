@@ -1,12 +1,12 @@
 import { Bot, webhookCallback } from "grammy";
-import { addCommand } from "../commands/addCommand";
-import { deleteCommand } from "../commands/deleteCommand";
-import { listCommand } from "../commands/listCommand";
-import { EnvironmentVariables } from "../types/environmentVariables";
-import { UserFilter } from "../middlewares/userFilter";
-import { PATTERN } from "../utils/regex.utils";
-import { ErrorHandler } from "../utils/errorHandler";
-import { sumCommand } from "../commands/sumCommand";
+import { addCommand } from "../src/commands/addCommand";
+import { deleteCommand } from "../src/commands/deleteCommand";
+import { listCommand } from "../src/commands/listCommand";
+import { EnvironmentVariables } from "../src/types/environmentVariables";
+import { UserFilter } from "../src/middlewares/userFilter";
+import { PATTERN } from "../src/utils/regex.utils";
+import { ErrorHandler } from "../src/utils/errorHandler";
+import { sumCommand } from "../src/commands/sumCommand";
 
 const bot = new Bot(EnvironmentVariables.TOKEN);
 bot.use(UserFilter);
