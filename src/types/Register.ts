@@ -1,4 +1,4 @@
-import { getNumber } from "../utils/getNumber";
+import { getNumber } from "../utils/number.utils";
 import { TAKE_VALUE } from "../utils/regex.utils";
 
 export interface Register {

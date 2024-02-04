@@ -8,6 +8,14 @@ export class Notification {
     (this.error = args[0]), (this.message = args[1]);
   }
 
+  get Error() {
+    return this.error;
+  }
+
+  get Message() {
+    return this.message;
+  }
+
   private getMessage() {
     return this.error ? `Error: ${this.message}` : this.message;
   }
@@ -15,6 +23,10 @@ export class Notification {
   public Notify(context: Context) {
     const reply = this.getMessage();
     reply && context.reply(reply);
+  }
+
+  public Ok(context: Context) {
+    if (!this.error) context.react("👍");
   }
 
   static SUCCESS(message?: string) {

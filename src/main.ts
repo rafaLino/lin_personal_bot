@@ -6,14 +6,15 @@ import { EnvironmentVariables } from "./environmentVariables";
 import { UserFilter } from "./middlewares/userFilter";
 import { PATTERN } from "./utils/regex.utils";
 import { ErrorHandler } from "./utils/errorHandler";
+import { sumCommand } from "./commands/sumCommand";
 
 const bot = new Bot(EnvironmentVariables.TOKEN);
 bot.use(UserFilter);
 
-bot.on(":text").hears(PATTERN, async (context) => {
+bot.on([":text"]).hears(PATTERN, async (context) => {
   if (!context.match) return;
   const notification = await addCommand(context.match[0]);
-  return notification.Notify(context);
+  return notification.Ok(context);
 });
 
 bot.command("list", async (context) => {
@@ -24,6 +25,11 @@ bot.command("list", async (context) => {
 bot.command("delete", async (context) => {
   if (!context.match) return;
   const notification = await deleteCommand(context.match);
+  return notification.Notify(context);
+});
+
+bot.command("sum", async (context) => {
+  const notification = await sumCommand();
   return notification.Notify(context);
 });
 
