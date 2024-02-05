@@ -1,8 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import { Register } from "../types/Register";
 import { EndOfMonth, StartOfMonth } from "../utils/date.utils";
-
-const client = new PrismaClient();
+import client from "../utils/prisma";
 
 async function List() {
   return client.register.findMany({
