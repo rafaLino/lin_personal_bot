@@ -1,10 +1,11 @@
 {
   "main": "build/main.js",
   "scripts": {
-    "build": "tsc && npm run prisma:generate",
+    "build": "tsc",
     "start": "npm run build && node --env-file=.env build/main.js",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev --name",
+    "postinstall": "prisma generate",
     "test": "jest",
     "test:watch": "jest --watch"
   },
