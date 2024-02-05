@@ -8,14 +8,6 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
-    "paths": {
-      "@commands":["./src/commands/*"],
-      "@middlewares":["./src/middlewares/*"],
-      "@repositories":["./src/repositories/*"],
-      "@types":["./src/types/*"],
-      "@utils":["./src/utils/*"],
-      
-    }
   },
   "include": ["src", "api"],
   "exclude": [
