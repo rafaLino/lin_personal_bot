@@ -6,10 +6,7 @@ const config: Config = {
   clearMocks: true,
   coverageProvider: "v8",
   rootDir: "src",
-  setupFiles: ["<rootDir>/../config/jest.setup.ts"],
-  moduleNameMapper: {
-    "^src/(.*)$": "<rootDir>/src/$1",
-  },
+  setupFiles: ["<rootDir>/config/jest.setup.ts"],
   transform: {
     "^.+\\.ts?$": "ts-jest",
   },
