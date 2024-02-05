@@ -21,6 +21,15 @@ describe("add Command tests", () => {
     expect(notification.Error).toBe(false);
   });
 
+  test("should add an register given an special character description", async () => {
+    const argument = "Água 2";
+
+    const notification = await addCommand(argument);
+
+    expect(RegisterRepository.Save).toHaveBeenCalled();
+    expect(notification.Error).toBe(false);
+  });
+
   test("should get error given an bad amount", async () => {
     const argument = "cup of coffee free";
 
