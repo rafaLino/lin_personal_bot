@@ -1,7 +1,7 @@
 import { startBot } from "../src/bot";
 
 function init() {
-  startBot();
+  return startBot();
 }
 
 export default init();
