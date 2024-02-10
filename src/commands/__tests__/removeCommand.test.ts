@@ -1,5 +1,5 @@
 import { describe, expect, test } from "@jest/globals";
-import { deleteCommand } from "../deleteCommand";
+import { deleteCommand } from "../removeCommand";
 import { RegisterRepository } from "../../repositories/regiterRepository";
 
 describe("delete command tests", () => {
