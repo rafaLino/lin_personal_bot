@@ -7,6 +7,7 @@ import { UserFilter } from "../src/middlewares/userFilter";
 import { PATTERN } from "../src/utils/regex.utils";
 import { ErrorHandler } from "../src/utils/errorHandler";
 import { sumCommand } from "../src/commands/sumCommand";
+import { isProduction } from "./utils/isProduction";
 
 export function startBot() {
   const bot = new Bot(EnvironmentVariables.TOKEN);
@@ -36,7 +37,7 @@ export function startBot() {
 
   bot.catch(ErrorHandler);
 
-  if (process.env.NODE_ENV === "production") {
+  if (isProduction()) {
     return webhookCallback(bot, "http");
   }
 
