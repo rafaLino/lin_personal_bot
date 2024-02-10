@@ -1,5 +1,5 @@
 import { getNumber } from "../utils/number.utils";
-import { TAKE_VALUE } from "../utils/regex.utils";
+import { splitValues } from "../utils/regex.utils";
 
 export interface Register {
   name: string;
@@ -7,8 +7,12 @@ export interface Register {
 }
 
 export function createRegister(argument: string): Register {
-  const [name, amountString] = argument.split(TAKE_VALUE).filter(Boolean);
+  const [name, amountString] = splitValues(argument);
   const amount = getNumber(amountString);
 
   return { name, amount };
+}
+
+export function sumRegisters(list: Array<Register>) {
+  return list.reduce((prev, curr) => prev + curr.amount, 0);
 }

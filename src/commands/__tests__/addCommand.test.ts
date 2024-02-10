@@ -8,8 +8,25 @@ describe("add Command tests", () => {
 
     const notification = await addCommand(argument);
 
-    expect(RegisterRepository.Save).toHaveBeenCalled();
     expect(notification.Error).toBe(false);
+    expect(RegisterRepository.Save).toHaveBeenCalled();
+    expect(RegisterRepository.Save).toHaveBeenCalledWith({
+      name: "cup of coffee",
+      amount: 32.4,
+    });
+  });
+
+  test("should add an register given an long float number", async () => {
+    const argument = "McDonalds 1.032,98";
+
+    const notification = await addCommand(argument);
+
+    expect(notification.Error).toBe(false);
+    expect(RegisterRepository.Save).toHaveBeenCalled();
+    expect(RegisterRepository.Save).toHaveBeenCalledWith({
+      name: "McDonalds",
+      amount: 1032.98,
+    });
   });
 
   test("should add an register given an int number ", async () => {
