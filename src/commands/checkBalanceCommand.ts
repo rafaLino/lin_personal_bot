@@ -12,6 +12,6 @@ export async function checkBalanceCommand(): Promise<Notification> {
   const balance = limit > 1 ? limit - sum : limit;
 
   return Notification.SUCCESS(
-    `Limit: ${formatMoney(limit)}\nBalance: <b>${formatMoney(balance)}</b>`
+    `Balance: <b>${formatMoney(balance)}</b>\n\nLimit: ${formatMoney(limit)}`
   );
 }

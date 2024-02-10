@@ -40,7 +40,7 @@ describe("check Balance Command tests", () => {
 
     expect(notification.Error).toBe(false);
     expect(format(notification.Message)).toEqual(
-      `Limit: R$ 100,00\nBalance: <b>R$ 50,00</b>`
+      `Balance: <b>R$ 50,00</b>\n\nLimit: R$ 100,00`
     );
   });
 });
