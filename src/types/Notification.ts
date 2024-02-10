@@ -20,9 +20,9 @@ export class Notification {
     return this.error ? `Error: ${this.message}` : this.message;
   }
 
-  public Notify(context: Context) {
+  public Notify(context: Context, html: boolean = false) {
     const reply = this.getMessage();
-    reply && context.reply(reply);
+    reply && context.reply(reply, html ? { parse_mode: "HTML" } : {});
   }
 
   public Ok(context: Context) {

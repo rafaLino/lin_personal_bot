@@ -1,4 +1,3 @@
-import { PrismaClient } from "@prisma/client";
 import { Register } from "../types/Register";
 import { EndOfMonth, StartOfMonth } from "../utils/date.utils";
 import client from "../utils/prisma";

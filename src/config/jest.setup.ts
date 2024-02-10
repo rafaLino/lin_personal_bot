@@ -8,3 +8,10 @@ jest.mock("../repositories/regiterRepository", () => ({
     DeleteByName: jest.fn(),
   },
 }));
+
+jest.mock("../repositories/limitRepository", () => ({
+  LimitRepository: {
+    Get: jest.fn(),
+    Save: jest.fn(),
+  },
+}));

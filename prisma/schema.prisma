@@ -17,3 +17,8 @@ model Register {
     amount    Float    @db.Real
     createdAt DateTime @default(now())
 }
+
+model Limit {
+    id    Int   @id @default(autoincrement())
+    value Float @db.Real
+}
